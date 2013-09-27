@@ -3,6 +3,8 @@ module Main where
 import Graphics.Rendering.OpenGL
 import Graphics.UI.GLUT
 
+import WindowCreator
+
 data Block = Block (GLfloat, GLfloat) (GLfloat, GLfloat)
   deriving (Eq, Show, Read)
 
@@ -29,9 +31,5 @@ display = do
 
 main :: IO ()
 main = do
-  _ <- getArgsAndInitialize
-  createWindow "Test"
-
-  displayCallback $= display
-
+  defaultCreate
   mainLoop
